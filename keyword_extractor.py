@@ -5,6 +5,7 @@ nltk.download('punkt')
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 
+# Class to extract keywords
 class KeywordExtractor:
     def __init__(self):
         self.stop_words = set(stopwords.words('english'))

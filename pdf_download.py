@@ -2,12 +2,12 @@ import os
 import requests
 import json
 
-# Load the JSON file with URLs
-json_file = "C:\\Users\\panka\\Downloads\\Dataset.json"  # Replace with the path to your JSON file
+# To load the JSON file with URLs
+json_file = "C:\\Users\\panka\\Downloads\\Dataset.json"  
 with open(json_file, 'r') as file:
     data = json.load(file)
 
-# Create a directory to save the PDFs
+# For creating a directory to save the PDFs
 save_folder = 'downloaded_pdfs'
 if not os.path.exists(save_folder):
     os.makedirs(save_folder)
@@ -28,7 +28,7 @@ def download_pdf(pdf_url, file_name):
 
 # Download all PDFs from the JSON data
 for pdf_key, pdf_url in data.items():
-    # Set the file name as the key with a .pdf extension
+    # To set the file name as the key with a .pdf extension
     file_name = f"{pdf_key}.pdf"
     download_pdf(pdf_url, file_name)
 

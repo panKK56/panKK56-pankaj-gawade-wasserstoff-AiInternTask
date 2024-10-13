@@ -18,7 +18,7 @@ def process_pdf(pdf_file):
         print(f"Error processing {pdf_file}: {e}")
 
 if __name__ == "__main__":
-    folder_path = "D:\\AiInternTask\\downloaded_pdfs"  # Replace with your PDF folder path
+    folder_path = "D:\\AiInternTask\\downloaded_pdfs" 
     mongo_uri = 'mongodb://localhost:27017/'  # MongoDB URI
     db_name = 'pdf_database'
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     summarizer = Summarizer()
     keyword_extractor = KeywordExtractor()
 
-    # Ingest PDFs and store metadata in MongoDB
+    # For ingesting PDFs and storing metadata in MongoDB
     pdf_files = pdf_processor.ingest_pdfs()
     for pdf_file in pdf_files:
         document = {
@@ -37,7 +37,7 @@ if __name__ == "__main__":
         }
         mongo_handler.insert_document(document)
 
-    # Process PDFs concurrently
+    # To process pdfs concurrently
     start_time = time.time()
     with ProcessPoolExecutor() as executor:
         executor.map(process_pdf, pdf_files)
